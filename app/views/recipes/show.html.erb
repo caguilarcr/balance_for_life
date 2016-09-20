@@ -1,0 +1,21 @@
+<h1><%= @recipe.name %> <small>(<a href="/recipe_categories/<%= @recipe.recipe_category.id %>"><%= @recipe.recipe_category.name %></a>)</small></h1>
+
+<%= link_to 'Modificar', edit_recipe_path(@recipe) %> |
+<%= link_to 'Todas las recetas', recipes_path %>
+
+<hr>
+
+<div class="recipe-body">
+  <img src="<%= @recipe.image %>">
+
+  <h3>Ingredientes:</h3>
+  <%= @recipe.ingredients.gsub(/\n/, '<br>').html_safe %>
+
+  <h3>Instrucciones:</h3>
+  <%= @recipe.instructions.gsub(/\n/, '<br>').html_safe %>
+
+  <h3>Informaci&oacute;n Nutricional:</h3>
+  <%= @recipe.nutrition_info %>
+</div>
+
+<hr>

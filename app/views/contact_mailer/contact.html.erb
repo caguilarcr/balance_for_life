@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Solicitud de Contacto</h1>
+    <p>Este correo fue generado a trav&eacute;s del formulario de contacto del sitio web de Balance for Life</p>
+    <p><b>Nombre:</b> <%= @contact[:name] %></p>
+    <p><b>Apellidos:</b> <%= @contact[:lastname] %></p>
+    <p><b>Correo electr&oacute;nico:</b> <%= @contact[:email] %></p>
+    <p><b>Mensaje:</b></p>
+    <p><%= @contact[:message] %></p>
+  </body>
+</html>

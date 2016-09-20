@@ -1,0 +1,24 @@
+<h1>Recetas</h1>
+
+<br>
+
+<p>
+  <%= link_to "Agregar Receta".html_safe, new_recipe_path, class: 'btn btn-primary' %>
+  <%= link_to "Men&uacute;".html_safe, "/admin", class: 'btn btn-default' %>
+</p>
+
+<br>
+
+<table class="table">
+
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td>[<%= link_to recipe.recipe_category.name, recipe.recipe_category %>]</td>
+        <td class="recipe-name"><%= link_to recipe.name, recipe %></td>
+        <td><%= link_to "Editar", edit_recipe_path(recipe) %></td>
+        <td><%= link_to "Eliminar", recipe, method: :delete, data: { confirm: "Est&aacute; seguro que desea eliminar la receta #{recipe.name}?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

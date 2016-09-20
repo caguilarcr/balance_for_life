@@ -1,0 +1,50 @@
+<%= form_for(@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if params[:category] and !@recipe.recipe_category_id.nil? %>
+    <h3>Categor&iacute;a: <%= @recipe.recipe_category.name %></h3>
+  <% else %>
+    <div class="field">
+      <%= f.label :recipe_category, "Categor&iacute;a".html_safe %><br>
+      <%= collection_select(:recipe, :recipe_category_id, RecipeCategory.all, :id, :name) %>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name, "Nombre" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :ingredients, "Ingredientes" %><br>
+    <%= f.text_area :ingredients %>
+  </div>
+  <div class="field">
+    <%= f.label :instructions, "Instrucciones" %><br>
+    <%= f.text_area :instructions %>
+  </div>
+  <div class="field">
+    <%= f.label :nutrition_info, "Informaci&oacute;n Nutricional".html_safe %><br>
+    <%= f.text_area :nutrition_info %>
+  </div>
+  <div class="field">
+    <%= f.label :image, "Foto" %><br>
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Guardar" %>
+  </div>
+<% end %>
+
+
+<%= link_to "Regresar", (params[:category] ? "/recipe_categories/#{params[:category]}" : recipes_path )%>
+
+<hr>
