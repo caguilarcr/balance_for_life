@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # timezone information for windows enviroments
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+# using pg for deploy in heroku
+gem 'pg'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
